@@ -10,8 +10,8 @@
     "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "format": "prettier --write \"apps/**/*.{ts,tsx,css,html,json}\" \"*.{json,js,mjs,cjs}\"",
-    "format:check": "prettier --check \"apps/**/*.{ts,tsx,css,html,json}\" \"*.{json,js,mjs,cjs}\""
+    "format": "prettier --write \"apps/**/*.{ts,tsx,css,html,json}\" \"docs/**/*.md\" \"*.{json,js,mjs,cjs}\"",
+    "format:check": "prettier --check \"apps/**/*.{ts,tsx,css,html,json}\" \"docs/**/*.md\" \"*.{json,js,mjs,cjs}\""
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
