@@ -1,0 +1,82 @@
+[
+  {
+    "id": "E01",
+    "placeSlug": "casa-de-la-libertad",
+    "query": "¿En qué fecha se proclamó la independencia?",
+    "expectedAnswer": "6 de agosto de 1825",
+    "expectedChunkIds": ["cdl-independencia-02"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E02",
+    "placeSlug": "casa-de-la-libertad",
+    "query": "¿Qué función tenía ese salón antes de los acontecimientos de 1825?",
+    "expectedAnswer": "Capilla universitaria y sala de actos académicos o defensa de tesis",
+    "expectedChunkIds": ["cdl-origen-01"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E03",
+    "placeSlug": "casa-de-la-libertad",
+    "query": "¿Hasta cuándo fue sede del Congreso?",
+    "expectedAnswer": "1898",
+    "expectedChunkIds": ["cdl-republica-03"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E04",
+    "placeSlug": "plaza-25-de-mayo",
+    "query": "¿Qué acontecimiento explica el nombre de la plaza?",
+    "expectedAnswer": "El levantamiento del 25 de mayo de 1809 en Chuquisaca",
+    "expectedChunkIds": ["p25-nombre-01"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E05",
+    "placeSlug": "plaza-25-de-mayo",
+    "query": "¿Qué ley nacional protege su valor cultural e histórico?",
+    "expectedAnswer": "Ley 531 de 2014",
+    "expectedChunkIds": ["p25-patrimonio-02"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E06",
+    "placeSlug": "plaza-25-de-mayo",
+    "query": "¿Por qué tiene caminos diagonales y fuentes ornamentales?",
+    "expectedAnswer": "Su diseño urbano presenta influencia francesa del siglo XIX",
+    "expectedChunkIds": ["p25-diseno-03"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E07",
+    "placeSlug": "la-recoleta",
+    "query": "¿Quiénes fundaron el convento de La Recoleta y en qué año según la ordenanza?",
+    "expectedAnswer": "Franciscanos, 1600, según la ordenanza municipal",
+    "expectedChunkIds": ["rec-origen-01"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E08",
+    "placeSlug": "la-recoleta",
+    "query": "¿Qué se hizo para recordar la distinción de la UNESCO en La Recoleta?",
+    "expectedAnswer": "Una placa conmemorativa presentada en 2022",
+    "expectedChunkIds": ["rec-memoria-03"],
+    "expectedAbstention": false
+  },
+  {
+    "id": "E09",
+    "placeSlug": "la-recoleta",
+    "query": "¿Cuánto cuesta hoy entrar al museo del convento?",
+    "expectedAnswer": "No hay una tarifa actual verificada en el corpus",
+    "expectedChunkIds": [],
+    "expectedAbstention": true
+  },
+  {
+    "id": "E10",
+    "placeSlug": "plaza-25-de-mayo",
+    "query": "¿Cuál es el aforo máximo oficial de la plaza?",
+    "expectedAnswer": "El corpus no contiene el aforo oficial",
+    "expectedChunkIds": [],
+    "expectedAbstention": true
+  }
+]
