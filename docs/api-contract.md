@@ -273,5 +273,5 @@ Solo se publica el alias, nunca el nombre real u otros datos personales.
 
 ## Estado
 
-Este documento define una propuesta de contrato para revisión; salvo `GET /health`, estos endpoints
-todavía no están implementados en la API.
+Los endpoints P0 están disponibles en el servidor. La guía requiere Gemini y el corpus aprobado.
+Los endpoints de datos requieren el esquema inicial y la configuración de Supabase.

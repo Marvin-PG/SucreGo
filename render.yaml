@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: sucrego-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build --workspace apps/api
+    startCommand: npm run start --workspace apps/api
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_CHAT_MODEL
+        value: gemini-3.6-flash
+      - key: GEMINI_EMBEDDING_MODEL
+        value: gemini-embedding-001

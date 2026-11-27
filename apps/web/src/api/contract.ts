@@ -1,6 +1,6 @@
 export interface Source {
   title: string;
-  url: string;
+  url: string | null;
 }
 
 export interface Place {

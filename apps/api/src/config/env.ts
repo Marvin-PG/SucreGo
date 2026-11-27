@@ -17,7 +17,7 @@ export interface SupabaseEnv {
 }
 
 export function parseApiPort(env: NodeJS.ProcessEnv = process.env): number {
-  const rawPort = env.API_PORT?.trim();
+  const rawPort = env.API_PORT?.trim() || env.PORT?.trim();
   const parsed = portSchema.safeParse(rawPort && rawPort.length > 0 ? rawPort : 3001);
 
   if (!parsed.success) {

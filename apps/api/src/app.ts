@@ -11,6 +11,7 @@ import { createProfileRouter } from "./modules/profile/profile.routes.js";
 import type { ProfileRepository } from "./modules/profile/profile.repository.js";
 import { ProfileService } from "./modules/profile/profile.service.js";
 import { createQuizRouter } from "./modules/quiz/quiz.routes.js";
+import { createRagRouter } from "./modules/rag/rag.routes.js";
 import type { QuizRepository } from "./modules/quiz/quiz.repository.js";
 import { QuizService } from "./modules/quiz/quiz.service.js";
 
@@ -69,10 +70,7 @@ export function createApp(dependencies: AppDependencies = {}): Express {
     createQuizRouter({ quizService, requireAuth: auth.requireAuth }),
   );
 
-  // Extension point for Roi's RAG routes (POST /api/places/:id/lesson and POST /api/places/:id/chat)
-  if (dependencies.ragRouter) {
-    app.use("/api/places", dependencies.ragRouter);
-  }
+  app.use("/api/places", dependencies.ragRouter ?? createRagRouter(auth.requireAuth));
 
   app.use("/api", createProfileRouter({ profileService, requireAuth: auth.requireAuth }));
 

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch src/server.ts",
+    "dev": "node --env-file-if-exists=../../.env --watch --import tsx src/server.ts",
     "start": "node dist/server.js",
     "lint": "eslint src test && tsc --noEmit",
     "test": "vitest run",

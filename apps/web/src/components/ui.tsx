@@ -56,7 +56,10 @@ export function XpBar({ level, totalXp }: { level: string; totalXp: number }) {
 }
 
 export function Sources({ items }: { items: Source[] }) {
-  const links = items.filter((source) => /^https?:\/\//i.test(source.url));
+  const links = items.filter(
+    (source): source is Source & { url: string } =>
+      typeof source.url === "string" && /^https?:\/\//i.test(source.url),
+  );
   if (!links.length) return <small>Sin fuentes enlazadas.</small>;
   return (
     <ul className="sources" aria-label="Fuentes consultadas">

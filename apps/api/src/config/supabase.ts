@@ -133,7 +133,9 @@ export function createSupabaseClient(
 
   const serviceHeaders = {
     apikey: config.serviceRoleKey,
-    Authorization: `Bearer ${config.serviceRoleKey}`,
+    ...(config.serviceRoleKey.startsWith("sb_secret_")
+      ? {}
+      : { Authorization: `Bearer ${config.serviceRoleKey}` }),
     Accept: "application/json",
   };
 

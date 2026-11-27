@@ -122,15 +122,15 @@ define `VITE_API_BASE_URL` (sin el sufijo `/api`), `VITE_SUPABASE_URL` y
    [la migración inicial](supabase/migrations/0001_init.sql). Habilita el acceso
    anónimo en Auth y usa la clave pública en Vercel. El
    [seed actual](supabase/seed.sql) contiene textos y preguntas provisionales.
-3. **Render.** Cuando se integren los endpoints, configura el servicio desde la
-   raíz del repo con `npm ci && npm run build --workspace apps/api` y
-   `npm run start --workspace apps/api`. Si el servidor sigue leyendo `API_PORT`,
-   configúralo con el mismo valor que el puerto del servicio. Usa `/health` para
-   el chequeo de salud y autoriza el origen del frontend mediante CORS.
-   Configura las credenciales de Supabase y Gemini como variables privadas del servicio.
+3. **Render.** Importa [el Blueprint](render.yaml) desde la rama que contiene esta
+   integración. El servicio prepara el backend y el corpus RAG desde la raíz con
+   `/health` como chequeo. Configura `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
+   (clave privada de servidor) y `GEMINI_API_KEY` en el servicio. La API usa el
+   `PORT` de Render cuando `API_PORT` está vacío.
 4. **Integración.** Tras verificar `/health` y `/api/places` en Render, define
    `VITE_API_BASE_URL` con ese origen y vuelve a desplegar Vercel. En el Preview,
    abre `/explore` directamente y recorre ficha, guía, quiz, pasaporte y ranking.
+   Prueba el chat con una pregunta patrimonial y una sin evidencia en el corpus.
    Repite una misión aprobada y verifica que el servidor responda con
    `xpAwarded: 0` en el segundo envío.
 
