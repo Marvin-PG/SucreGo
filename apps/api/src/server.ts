@@ -1,10 +1,7 @@
 import app from "./app.js";
+import { parseApiPort } from "./config/env.js";
 
-const port = Number(process.env.API_PORT ?? 3001);
-
-if (!Number.isInteger(port) || port < 1 || port > 65535) {
-  throw new Error("API_PORT must be an integer between 1 and 65535");
-}
+const port = parseApiPort();
 
 app.listen(port, () => {
   console.info(`SucreGo API listening on http://localhost:${port}`);
