@@ -1,4 +1,4 @@
-# 🧭 SucreGo
+# SucreGo
 
 > **Tu ciudad. Tu historia. Tu aventura.**
 
@@ -6,15 +6,13 @@ SucreGo es una PWA *mobile-first* que convierte las calles de Sucre en una avent
 
 **Equipo:** VibeCoders · **Evento:** Hackathon Regional Sucre 2026 · **Tiempo:** 10 horas
 
----
-
-## 🎯 Problema y propuesta
+## Problema y propuesta
 
 Los jóvenes de Sucre reconocen muchos espacios patrimoniales, pero no necesariamente conocen su historia ni su importancia. **Hipótesis:** si explorar el patrimonio es una actividad breve, interactiva y personalizada, habrá más razones para visitar los lugares y aprender de ellos.
 
 Inspirada en la mecánica de exploración de Pokémon GO y la constancia de Duolingo, con identidad cultural propia.
 
-## 🔁 Flujo principal (MVP)
+## Flujo principal (MVP)
 
 ```mermaid
 flowchart LR
@@ -24,7 +22,7 @@ G --> A
 
 **Reglas del juego:** 2 de 3 respuestas correctas aprueban · 100 XP solo la primera vez por misión · Niveles: Explorador (0–99), Investigador (100–199), Cronista (200+).
 
-## ✅ Alcance
+## Alcance
 
 | Prioridad | Funcionalidad |
 | - | - |
@@ -34,7 +32,7 @@ G --> A
 
 Ninguna funcionalidad P1 empieza antes de que el flujo P0 esté integrado y probado.
 
-## 🧱 Stack
+## Stack
 
 | Capa | Tecnología |
 | - | - |
@@ -46,7 +44,7 @@ Ninguna funcionalidad P1 empieza antes de que el flujo P0 esté integrado y prob
 | QA | Vitest + smoke tests del flujo móvil |
 | Deploy | Vercel (web) + Render (API), con demo local de respaldo |
 
-## 📁 Estructura del repositorio
+## Estructura del repositorio
 
 ```text
 sucrego/
@@ -64,11 +62,9 @@ sucrego/
 └── README.md
 ```
 
-> La estructura se irá materializando en `chore/project-bootstrap`.
 
-## 🚀 Cómo ejecutar
+## Cómo ejecutar
 
-> 🚧 Se completará al cerrar `chore/project-bootstrap`.
 
 ```bash
 # 1. Instalar dependencias
@@ -76,11 +72,11 @@ sucrego/
 # 3. Levantar API y web en desarrollo
 ```
 
-## 🔐 Variables de entorno
+## Variables de entorno
 
 Ver `.env.example`. **Nunca** se suben claves reales al repositorio. Las claves del modelo y credenciales privilegiadas viven solo en el backend.
 
-## 🌿 Estrategia Git (GitFlow simplificado)
+## Estrategia Git (GitFlow simplificado)
 
 | Rama | Propósito |
 | - | - |
@@ -88,13 +84,10 @@ Ver `.env.example`. **Nunca** se suben claves reales al repositorio. Las claves 
 | `develop` | Rama de integración. Todas las PR apuntan aquí. |
 | `feat/*`, `fix/*`, `chore/*`, `test/*`, `docs/*` | Una rama por funcionalidad, creada desde `develop`. |
 
-Ramas planificadas: `chore/project-bootstrap` · `feat/mobile-map` · `feat/place-details` · `feat/rag-guide` · `feat/quiz-and-xp` · `feat/profile-leaderboard` · `test/mvp-validation` · `docs/pitch-evidence`
-
-**Commits:** [Conventional Commits](https://www.conventionalcommits.org/) — `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:`.
 
 **Definition of Done:** compila · respeta el contrato · tiene prueba relevante · maneja errores y estados vacíos · funciona en móvil · sin secretos · PR revisada · decisiones documentadas.
 
-## 🤖 IA responsable
+## IA responsable
 
 - El guía **solo** responde con información respaldada por fuentes revisadas, cita y se **abstiene** cuando no hay evidencia.
 - El puntaje y el XP los calcula el **servidor**, nunca el chat.
@@ -102,21 +95,14 @@ Ramas planificadas: `chore/project-bootstrap` · `feat/mobile-map` · `feat/plac
 - Ranking con alias públicos, sin nombres reales.
 - Uso de herramientas de IA registrado en [`docs/ai-disclosure.md`](docs/ai-disclosure.md).
 
-## 🗺️ Atribución
 
-Mapa © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright). Imágenes: solo con autorización verificada.
-
-## 👥 Equipo
+## Equipo
 
 | Frente | Responsable |
 | - | - |
 | Technical Lead | Roi |
-| UX/UI | _por asignar_ |
-| Frontend | _por asignar_ |
-| Backend | _por asignar_ |
-| IA y contenido | _por asignar_ |
-| QA / presentación | _por asignar_ |
+| UX/UI | Cecilia |
+| Frontend | Frontend |
+| Backend | Roi y Marvin |
+| IA y contenido | Marvin |
 
-## 📋 Progreso
-
-Ver [`docs/CHECKLIST.md`](docs/CHECKLIST.md).
