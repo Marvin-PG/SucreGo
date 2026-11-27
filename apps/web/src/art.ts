@@ -1,4 +1,5 @@
 export const art = {
+  brand: "/art/brand.png",
   mascot: "/art/mascot.webp",
   wordmark: "/art/wordmark.webp",
   city: "/art/sucre.jpg",
@@ -14,6 +15,6 @@ export const art = {
 
 export const placeArt: Record<string, string> = {
   "casa-de-la-libertad": art.casa,
-  "plaza-25-de-mayo": art.plaza,
-  "la-recoleta": art.recoleta,
+  "plaza-25-de-mayo": "/art/plaza.jpg",
+  "la-recoleta": "/art/recoleta.jpg",
 };

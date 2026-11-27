@@ -33,7 +33,9 @@ function App() {
 
   return (
     <div className={`app-shell ${showNav ? "with-nav" : ""}`}>
-      {isDemo && <aside className="demo-banner">Modo demo · Datos de muestra</aside>}
+      {isDemo && pathname !== "/" && (
+        <aside className="demo-banner">Modo demo · Datos de muestra</aside>
+      )}
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/explore" element={<Explore />} />
@@ -59,7 +61,7 @@ function App() {
       {showNav && (
         <nav aria-label="Navegación principal" className="bottom-nav">
           <NavLink to="/explore">
-            <span aria-hidden="true">♧</span>Explorar
+            <span aria-hidden="true">◫</span>Explorar
           </NavLink>
           <NavLink to="/leaderboard">
             <span aria-hidden="true">▥</span>Ranking

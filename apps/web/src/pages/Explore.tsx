@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { api } from "../api";
+import { api, isDemo } from "../api";
 import { art, placeArt } from "../art";
 import { PlaceMap } from "../components/PlaceMap";
 import { Action, Badge, Card, Status, useResource, XpBar } from "../components/ui";
@@ -11,13 +11,11 @@ export function Welcome() {
       <div
         className="welcome-hero"
         style={{
-          backgroundImage: `linear-gradient(180deg, #172b4d25, #a92f21ed), url(${art.city})`,
+          backgroundImage: `linear-gradient(180deg, #172b4d45, #c63227f5), url(${art.city})`,
         }}
       >
-        <span className="brand-icon" aria-hidden="true">
-          ⌂
-        </span>
-        <img src={art.wordmark} alt="" />
+        <img className="brand-icon" src={art.brand} alt="" />
+        <img className="wordmark" src={art.wordmark} alt="" />
         <h1 className="sr-only">Bienvenido a SucreGo</h1>
       </div>
       <div className="welcome-content">
@@ -28,10 +26,13 @@ export function Welcome() {
           Aprende, supera retos y deja tu huella.
         </p>
         <Action to="/explore" tone="terra">
-          Comenzar la aventura →
+          Comenzar la Aventura →
         </Action>
-        <small>VibeCoders · Sucre 2026</small>
       </div>
+      <footer className="welcome-footer">
+        <small>VibeCoders · Sucre 2026</small>
+        {isDemo && <span className="demo-banner">Modo demo · Datos de muestra</span>}
+      </footer>
     </main>
   );
 }

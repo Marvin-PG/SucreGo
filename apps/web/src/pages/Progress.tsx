@@ -112,7 +112,14 @@ export function Leaderboard() {
           <ol aria-label="Primeras posiciones" className="podium">
             {top.map((item, index) => (
               <li className={`podium-${index + 1}`} key={item.userId}>
-                {entry(item)}
+                <h3>
+                  {item.alias}
+                  {item.userId === ownId ? " · Tú" : ""}
+                </h3>
+                <div className="podium-step">
+                  <strong>{item.rank}</strong>
+                  <small>{item.totalXp} XP</small>
+                </div>
               </li>
             ))}
           </ol>

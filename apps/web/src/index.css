@@ -6,6 +6,8 @@
   --color-terracotta: #c44e36;
   --color-jade: #247a65;
   --color-gold: #e3a72f;
+  --screen-width: 390px;
+  --demo-height: 28px;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -62,7 +64,7 @@ small {
 }
 .app-shell {
   position: relative;
-  max-width: 430px;
+  max-width: var(--screen-width);
   min-height: 100dvh;
   margin-inline: auto;
   background: var(--color-cream);
@@ -89,6 +91,7 @@ small {
 .demo-banner {
   padding: 5px 12px;
   background: #f7e5be;
+  line-height: 18px;
   text-align: center;
   font-size: 0.75rem;
   font-weight: 750;
@@ -189,7 +192,7 @@ progress::-moz-progress-bar {
   z-index: 500;
   inset: auto 0 0;
   margin-inline: auto;
-  max-width: 430px;
+  max-width: var(--screen-width);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 7px 8px max(7px, env(safe-area-inset-bottom));
@@ -211,45 +214,70 @@ progress::-moz-progress-bar {
   color: var(--color-terracotta);
 }
 .welcome {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
   text-align: center;
 }
 .welcome-hero {
-  min-height: clamp(270px, 40dvh, 350px);
+  min-height: clamp(245px, 39.6dvh, 334px);
   border-radius: 0 0 35px 35px;
   background-position: center;
   background-size: cover;
+  box-shadow: 0 5px 8px #172b4d30;
   display: grid;
   align-content: center;
   justify-items: center;
-  gap: 15px;
+  gap: 9px;
+  padding-bottom: 22px;
 }
-.welcome-hero img {
-  width: 80%;
-  max-width: 320px;
+.welcome-hero .wordmark {
+  width: 76%;
+  max-width: 296px;
 }
 .brand-icon {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--color-cream);
-  color: var(--color-terracotta);
-  font-size: 1.7rem;
-  font-weight: 900;
 }
 .welcome-content {
   display: grid;
-  gap: 16px;
+  flex: 1;
+  gap: 13px;
+  align-content: end;
   justify-items: center;
-  padding: 26px 20px;
+  padding: 24px 20px clamp(10px, 3.5dvh, 28px);
 }
 .welcome-mascot {
-  width: min(41%, 155px);
-  height: auto;
+  width: auto;
+  height: clamp(125px, 21dvh, 177px);
 }
-.welcome-content small {
-  justify-self: start;
+.welcome-content p {
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+.welcome-content .action {
+  min-height: 54px;
+  margin-top: 4px;
+  box-shadow: inset 0 3px 5px #172b4d30;
+  font-size: clamp(1rem, 4.8vw, 1.25rem);
+}
+.welcome-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 20px max(14px, env(safe-area-inset-bottom));
+  text-align: left;
+}
+.welcome-footer small {
+  font-size: 0.65rem;
+}
+.welcome-footer .demo-banner {
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.65rem;
 }
 .explore > header {
   padding: 24px 20px 16px;
@@ -267,7 +295,7 @@ progress::-moz-progress-bar {
 }
 .map-canvas {
   isolation: isolate;
-  height: clamp(235px, 41dvh, 380px);
+  height: clamp(220px, 38dvh, 350px);
 }
 .place-choices {
   display: flex;
@@ -289,7 +317,7 @@ progress::-moz-progress-bar {
   margin-top: 8px;
   border-radius: 999px;
   padding: 6px 12px;
-  min-height: 36px;
+  min-height: 44px;
   font-size: 0.75rem;
   font-weight: 750;
 }
@@ -317,7 +345,7 @@ progress::-moz-progress-bar {
   font-size: 0.82rem;
 }
 .detail-hero {
-  height: clamp(240px, 39dvh, 350px);
+  height: clamp(220px, 37.5dvh, 320px);
   position: relative;
 }
 .detail-hero img {
@@ -342,9 +370,30 @@ progress::-moz-progress-bar {
   font-size: 1.9rem;
   line-height: 1;
 }
+.detail .section-stack {
+  gap: 12px;
+  padding-bottom: 12px;
+}
+.detail .action.outline {
+  min-height: 44px;
+  border-color: transparent;
+}
 .detail h1 {
   font-size: clamp(2.25rem, 10vw, 3.15rem);
-  max-width: 9ch;
+  max-width: 11ch;
+}
+.detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.detail-heading img {
+  width: clamp(78px, 25%, 105px);
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
 }
 .sources {
   font-size: 0.78rem;
@@ -352,6 +401,17 @@ progress::-moz-progress-bar {
   overflow-wrap: anywhere;
 }
 .sources a {
+  text-decoration: underline;
+}
+.guide > .sources a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid #172b4d80;
+  border-radius: 13px;
+  text-decoration: none;
+}
+.guide > .sources a:hover,
+.guide > .sources a:focus-visible {
   text-decoration: underline;
 }
 .page-header {
@@ -429,6 +489,23 @@ progress::-moz-progress-bar {
   color: white;
 }
 
+.quiz {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+.demo-banner + .quiz {
+  min-height: calc(100dvh - var(--demo-height));
+}
+.quiz .quiz-mascot {
+  align-self: center;
+}
+.quiz > .action {
+  margin-top: auto;
+}
+.quiz > .action:disabled {
+  opacity: 0.88;
+}
 .quiz-progress > div {
   display: flex;
   justify-content: space-between;
@@ -485,7 +562,14 @@ progress::-moz-progress-bar {
 }
 .result {
   text-align: center;
-  gap: 16px;
+  gap: 12px;
+}
+.result h1 {
+  max-width: 15ch;
+  justify-self: center;
+}
+.result > p {
+  color: #206954;
 }
 .result > .badge {
   justify-self: center;
@@ -515,8 +599,15 @@ progress::-moz-progress-bar {
   align-items: end;
   justify-content: space-between;
 }
+.passport header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
 .passport header .badge {
-  flex: 0 0 auto;
+  font-size: 0.6rem;
+}
+.passport {
+  row-gap: 20px;
 }
 .passport-profile {
   display: grid;
@@ -549,7 +640,7 @@ progress::-moz-progress-bar {
   display: grid;
   align-content: center;
   gap: 10px;
-  min-height: 105px;
+  min-height: 140px;
   height: 100%;
   padding: 13px;
   border-radius: 16px;
@@ -582,35 +673,45 @@ progress::-moz-progress-bar {
 }
 .podium li {
   display: grid;
-  align-content: end;
-  gap: 12px;
+  gap: 6px;
   flex: 1;
   min-width: 0;
-  padding: 12px 5px;
-  border-radius: 12px;
-  background: var(--color-blue);
-  color: white;
   overflow-wrap: anywhere;
 }
-.podium li > strong {
+.podium li h3 {
+  font-size: 0.74rem;
+}
+.podium-step {
+  display: grid;
+  align-content: space-between;
+  justify-items: center;
+  padding: 12px 5px;
+  border-radius: 13px;
+  background: var(--color-blue);
+  color: white;
+}
+.podium-step strong {
   font-size: 1.55rem;
 }
-.podium li h3 {
-  font-size: 0.77rem;
-}
-.podium .podium-1 {
+.podium-1 {
   order: 1;
-  min-height: 148px;
+}
+.podium-2 {
+  order: 0;
+}
+.podium-3 {
+  order: 2;
+}
+.podium-1 .podium-step {
+  min-height: 142px;
   background: var(--color-gold);
   color: var(--color-blue);
 }
-.podium .podium-2 {
-  order: 0;
-  min-height: 118px;
+.podium-2 .podium-step {
+  min-height: 112px;
 }
-.podium .podium-3 {
-  order: 2;
-  min-height: 100px;
+.podium-3 .podium-step {
+  min-height: 92px;
 }
 .ranking-list {
   display: grid;
@@ -625,8 +726,8 @@ progress::-moz-progress-bar {
 }
 @media (max-width: 350px) {
   .passport header {
-    align-items: start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }
 
@@ -641,4 +742,21 @@ progress::-moz-progress-bar {
   min-height: 32px;
   font-weight: 800;
   text-decoration: underline;
+}
+
+.leaflet-tooltip.map-label {
+  border: 0;
+  border-radius: 999px;
+  padding: 3px 8px;
+  box-shadow: 0 1px 4px #172b4d25;
+  background: var(--color-blue);
+  color: var(--color-cream);
+  font: 750 0.68rem/1.4 var(--font-sans);
+}
+.leaflet-tooltip.map-label::before {
+  display: none;
+}
+.leaflet-tooltip.map-label-featured {
+  background: var(--color-cream);
+  color: var(--color-blue);
 }

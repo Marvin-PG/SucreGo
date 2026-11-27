@@ -1,4 +1,4 @@
-import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from "react-leaflet";
+import { CircleMarker, MapContainer, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import type { Place } from "../api/contract";
@@ -33,10 +33,11 @@ function hasCoordinates(place: Place): place is MappablePlace {
 
 function MapViewport({ center }: { center: [number, number] }) {
   const map = useMap();
+  const [latitude, longitude] = center;
 
   useEffect(() => {
-    map.setView(center);
-  }, [center, map]);
+    map.setView([latitude, longitude]);
+  }, [latitude, longitude, map]);
 
   return null;
 }
@@ -67,10 +68,26 @@ export function PlaceMap({ places, onPlaceSelect, userLocation }: PlaceMapProps)
             center={[place.coordinates.latitude, place.coordinates.longitude]}
             eventHandlers={{ click: () => onPlaceSelect(place) }}
             key={place.slug}
-            pathOptions={{ color: "#172B4D", fillColor: "#C44E36", fillOpacity: 1 }}
+            pathOptions={{
+              color: "#FFF9F0",
+              fillColor: place.slug === "casa-de-la-libertad" ? "#C44E36" : "#172B4D",
+              fillOpacity: 1,
+              weight: 2,
+            }}
             radius={10}
           >
-            <Popup>{place.name}</Popup>
+            <Tooltip
+              className={`map-label ${place.slug === "casa-de-la-libertad" ? "map-label-featured" : ""}`}
+              direction={place.slug === "la-recoleta" ? "left" : "right"}
+              offset={
+                place.slug === "la-recoleta"
+                  ? [-11, 0]
+                  : [11, place.slug === "casa-de-la-libertad" ? -7 : 6]
+              }
+              permanent={mappablePlaces.length <= 3}
+            >
+              {place.name}
+            </Tooltip>
           </CircleMarker>
         ))}
         {userLocation && (

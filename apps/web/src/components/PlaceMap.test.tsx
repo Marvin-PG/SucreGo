@@ -19,6 +19,7 @@ vi.mock("react-leaflet", async () => {
       createElement("div", { "data-testid": "map" }, children),
     Popup: ({ children }: { children?: ReactNode }) => createElement("span", null, children),
     TileLayer: () => null,
+    Tooltip: ({ children }: { children?: ReactNode }) => createElement("span", null, children),
     useMap: () => ({ setView: vi.fn() }),
   };
 });

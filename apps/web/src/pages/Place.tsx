@@ -37,7 +37,11 @@ export function PlacePage({ slug, guide }: { slug: string; guide?: boolean }) {
       </div>
       <div className="section-stack padded">
         <Badge tone="terra">Patrimonio cultural</Badge>
-        <h1>{place.name}</h1>
+        <div className="detail-heading">
+          <h1>{place.name}</h1>
+          {slug === "plaza-25-de-mayo" && <img src={art.plaza} alt="" />}
+          {slug === "la-recoleta" && <img src={art.recoleta} alt="" />}
+        </div>
         <p>{place.summary}</p>
         <Card tone="navy">
           <h2>Una historia por descubrir</h2>
