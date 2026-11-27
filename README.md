@@ -109,10 +109,30 @@ npm run format:check
 
 Para conectar el frontend a una API que implemente [el contrato](docs/api-contract.md),
 define `VITE_API_BASE_URL` (sin el sufijo `/api`), `VITE_SUPABASE_URL` y
-`VITE_SUPABASE_ANON_KEY` en el entorno de Vite o en el `.env` de la raíz.
-Habilita el inicio de sesión anónimo en Supabase. Para orígenes distintos, la API
-debe permitir el origen del frontend. El hosting web debe servir `index.html`
-para los enlaces directos de React Router.
+`VITE_SUPABASE_PUBLISHABLE_KEY` en el entorno de Vite o en el `.env` de la raíz.
+`VITE_SUPABASE_ANON_KEY` admite la clave pública anterior.
+
+### Preparar el despliegue
+
+1. **Vercel.** Importa el repositorio con `apps/web` como directorio raíz, el preset
+   Vite y acceso a los archivos del monorepo fuera de ese directorio. La salida es
+   `dist` y [la configuración](apps/web/vercel.json) habilita los enlaces directos.
+   Un Preview con `VITE_API_BASE_URL` vacía sirve la demo.
+2. **Supabase.** Identifica el proyecto del equipo y comprueba si ya tiene aplicada
+   [la migración inicial](supabase/migrations/0001_init.sql). Habilita el acceso
+   anónimo en Auth y usa la clave pública en Vercel. El
+   [seed actual](supabase/seed.sql) contiene textos y preguntas provisionales.
+3. **Render.** Cuando se integren los endpoints, configura el servicio desde la
+   raíz del repo con `npm ci && npm run build --workspace apps/api` y
+   `npm run start --workspace apps/api`. Si el servidor sigue leyendo `API_PORT`,
+   configúralo con el mismo valor que el puerto del servicio. Usa `/health` para
+   el chequeo de salud y autoriza el origen del frontend mediante CORS.
+   Configura las credenciales de Supabase y Gemini como variables privadas del servicio.
+4. **Integración.** Tras verificar `/health` y `/api/places` en Render, define
+   `VITE_API_BASE_URL` con ese origen y vuelve a desplegar Vercel. En el Preview,
+   abre `/explore` directamente y recorre ficha, guía, quiz, pasaporte y ranking.
+   Repite una misión aprobada y verifica que el servidor responda con
+   `xpAwarded: 0` en el segundo envío.
 
 Consulta [`.env.example`](.env.example). Las credenciales privilegiadas y las
 claves del modelo viven solo en el backend.
