@@ -122,17 +122,14 @@ define `VITE_API_BASE_URL` (sin el sufijo `/api`), `VITE_SUPABASE_URL` y
    [la migración inicial](supabase/migrations/0001_init.sql). Habilita el acceso
    anónimo en Auth y usa la clave pública en Vercel. El
    [seed actual](supabase/seed.sql) contiene textos y preguntas provisionales.
-3. **Render.** Importa [el Blueprint](render.yaml) desde la rama que contiene esta
-   integración. El servicio prepara el backend y el corpus RAG desde la raíz con
-   `/health` como chequeo. Configura `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
-   (clave privada de servidor) y `GEMINI_API_KEY` en el servicio. La API usa el
-   `PORT` de Render cuando `API_PORT` está vacío.
-4. **Integración.** Tras verificar `/health` y `/api/places` en Render, define
-   `VITE_API_BASE_URL` con ese origen y vuelve a desplegar Vercel. En el Preview,
-   abre `/explore` directamente y recorre ficha, guía, quiz, pasaporte y ranking.
-   Prueba el chat con una pregunta patrimonial y una sin evidencia en el corpus.
-   Repite una misión aprobada y verifica que el servidor responda con
-   `xpAwarded: 0` en el segundo envío.
+3. **Render en un solo servicio.** Importa [el Blueprint](render.yaml) desde
+   la rama de despliegue. Compila la web y la API, y sirve ambas desde la misma URL.
+   Configura `SUPABASE_URL`, la clave privada `SUPABASE_SERVICE_ROLE_KEY`,
+   `GEMINI_API_KEY`, y las variables públicas `VITE_SUPABASE_URL` y
+   `VITE_SUPABASE_PUBLISHABLE_KEY`. La variable `VITE_API_BASE_URL=/`
+   usa el mismo origen. Ambas URL de Supabase deben apuntar al mismo proyecto.
+4. **Verificación.** En la URL pública de Render, revisa `/health`, `/api/places`
+   y abre `/explore` directamente. Comprueba guía, quiz, pasaporte y ranking.
 
 Consulta [`.env.example`](.env.example). Las credenciales privilegiadas y las
 claves del modelo viven solo en el backend.

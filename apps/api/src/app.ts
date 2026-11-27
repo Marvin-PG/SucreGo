@@ -1,4 +1,5 @@
 import express from "express";
+import { join } from "node:path";
 import type { Express, NextFunction, Request, Response, Router } from "express";
 import { createAuthMiddleware } from "./middleware/auth.js";
 import type { AuthMiddlewares } from "./middleware/auth.js";
@@ -24,6 +25,7 @@ export interface AppDependencies {
   now?: () => Date;
   /** Optional router for RAG endpoints (POST /:id/lesson and POST /:id/chat) mounted under /api/places. */
   ragRouter?: Router;
+  webRoot?: string;
 }
 
 function corsMiddleware(req: Request, res: Response, next: NextFunction): void {
@@ -73,6 +75,16 @@ export function createApp(dependencies: AppDependencies = {}): Express {
   app.use("/api/places", dependencies.ragRouter ?? createRagRouter(auth.requireAuth));
 
   app.use("/api", createProfileRouter({ profileService, requireAuth: auth.requireAuth }));
+
+  if (dependencies.webRoot) {
+    const webRoot = dependencies.webRoot;
+    app.use(express.static(webRoot));
+    app.get(/^\/(?!api(?:\/|$)|health(?:\/|$))[^.]*$/, (_req, res, next) => {
+      res.sendFile(join(webRoot, "index.html"), (error) => {
+        if (error) next(error);
+      });
+    });
+  }
 
   app.use(notFoundHandler);
   app.use(errorHandler);

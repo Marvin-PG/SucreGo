@@ -1,8 +1,9 @@
 import type { Api } from "./contract";
 import { anonymousToken } from "./session";
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/$/, "");
-export const isDemo = !baseUrl;
+const configuredApiUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const baseUrl = configuredApiUrl?.replace(/\/+$/, "");
+export const isDemo = !configuredApiUrl;
 
 async function request<T>(
   path: string,
