@@ -2,22 +2,17 @@ import { pathToFileURL } from "node:url";
 import { getGeminiProvider } from "./gemini.js";
 
 export async function checkGeminiConnection(): Promise<{ embeddingDimensions: number }> {
-  const { client, chatModel, embeddingModel } = getGeminiProvider();
+  const provider = getGeminiProvider();
 
-  const generation = await client.models.generateContent({
-    model: chatModel,
-    contents: "Reply with exactly: SucreGo Gemini connection OK",
-  });
+  const generation = await provider.generateText(
+    "Reply with exactly: SucreGo Gemini connection OK",
+  );
 
-  if (!generation.text?.trim()) {
+  if (!generation.trim()) {
     throw new Error("Gemini text generation returned an empty response");
   }
 
-  const embedding = await client.models.embedContent({
-    model: embeddingModel,
-    contents: "SucreGo Gemini connection check",
-  });
-  const values = embedding.embeddings?.[0]?.values;
+  const [values] = await provider.embedTexts(["SucreGo Gemini connection check"]);
 
   if (!values?.length || values.some((value) => !Number.isFinite(value))) {
     throw new Error("Gemini embedding request returned no valid vector");
@@ -26,13 +21,7 @@ export async function checkGeminiConnection(): Promise<{ embeddingDimensions: nu
   return { embeddingDimensions: values.length };
 }
 
-function isDirectExecution(): boolean {
-  const entryPoint = process.argv[1];
-
-  return entryPoint !== undefined && import.meta.url === pathToFileURL(entryPoint).href;
-}
-
-if (isDirectExecution()) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const result = await checkGeminiConnection();
     console.info(

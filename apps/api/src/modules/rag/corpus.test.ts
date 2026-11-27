@@ -34,13 +34,14 @@ const corpusFixture: Corpus = {
 };
 
 describe("heritage corpus", () => {
-  it("loads the supplied corpus and keeps it pending human review", async () => {
+  it("loads the human-approved corpus and its 14 chunks", async () => {
     const corpus = await loadHeritageCorpus();
 
-    expect(corpus.reviewStatus).toBe("pending_human_review");
+    expect(corpus.reviewStatus).toBe("approved");
+    expect(corpus.reviewedBy).toBe("Roi");
     expect(corpus.sources).toHaveLength(8);
     expect(corpus.chunks).toHaveLength(14);
-    expect(getApprovedChunks(corpus)).toEqual([]);
+    expect(getApprovedChunks(corpus)).toHaveLength(14);
   });
 
   it("loads evaluation cases from a separate file", async () => {
@@ -135,13 +136,15 @@ describe("heritage corpus", () => {
   });
 
   it("only exposes chunks after a human marks the corpus approved", () => {
+    const pendingCorpus = parseHeritageCorpus(corpusFixture);
     const approvedCorpus = parseHeritageCorpus({
       ...corpusFixture,
       reviewStatus: "approved",
-      reviewedBy: "Revisor",
-      reviewedAt: "2026-11-27T00:00:00.000Z",
+      reviewedBy: "Roi",
+      reviewedAt: "2026-11-27T14:15:55.000Z",
     });
 
+    expect(getApprovedChunks(pendingCorpus)).toEqual([]);
     expect(getApprovedChunks(approvedCorpus)).toEqual(approvedCorpus.chunks);
   });
 });

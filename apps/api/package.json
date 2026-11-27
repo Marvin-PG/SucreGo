@@ -9,7 +9,8 @@
     "start": "node dist/server.js",
     "lint": "eslint src test && tsc --noEmit",
     "test": "vitest run",
-    "test:rag-connection": "tsx src/modules/rag/connection-check.ts"
+    "test:rag-connection": "tsx src/modules/rag/connection-check.ts",
+    "rag:embed": "tsx src/modules/rag/generate-embeddings.ts"
   },
   "dependencies": {
     "@google/genai": "^3.6.1",

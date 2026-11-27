@@ -3,8 +3,10 @@
   "project": "SucreGo",
   "language": "es",
   "preparedAt": "2026-11-27",
-  "reviewStatus": "pending_human_review",
-  "usage": "Corpus inicial para RAG. Indexar únicamente chunks aprobados tras revisión humana. Los textos son paráfrasis; conservar siempre la fuente. Los casos de evaluación no se indexan.",
+  "reviewStatus": "approved",
+  "reviewedBy": "Roi",
+  "reviewedAt": "2026-11-27T14:15:55.000Z",
+  "usage": "Corpus revisado por una persona. Indexar únicamente chunks aprobados; conservar siempre la fuente. Los casos de evaluación no se indexan.",
   "places": [
     {
       "slug": "plaza-25-de-mayo",

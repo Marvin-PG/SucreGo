@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { getGeminiProvider } from "./gemini.js";
+import { getGeminiProvider, resetGeminiProviderForTests } from "./gemini.js";
 
 const originalEnvironment = {
   apiKey: process.env.GEMINI_API_KEY,
@@ -8,6 +8,7 @@ const originalEnvironment = {
 };
 
 afterEach(() => {
+  resetGeminiProviderForTests();
   if (originalEnvironment.apiKey === undefined) {
     delete process.env.GEMINI_API_KEY;
   } else {
@@ -47,6 +48,7 @@ describe("Gemini provider configuration", () => {
 
     expect(provider.chatModel).toBe("configured-chat-model");
     expect(provider.embeddingModel).toBe("configured-embedding-model");
-    expect(provider.client).toBeDefined();
+    expect(provider.generateText).toBeTypeOf("function");
+    expect(provider.embedTexts).toBeTypeOf("function");
   });
 });
