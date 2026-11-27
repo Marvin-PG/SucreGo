@@ -13,45 +13,39 @@ export interface PlaceFixture {
 
 export const placeFixtures: PlaceFixture[] = [
   {
-    slug: "lugar-candidato-1",
-    name: "Lugar candidato 1",
+    slug: "plaza-25-de-mayo",
+    name: "Plaza 25 de Mayo",
     summary: "[TEXTO DE EJEMPLO]",
     description: "[TEXTO DE EJEMPLO]",
     coordinates: {
-      // TODO: confirmar con responsable de contenido.
-      latitude: null,
-      // TODO: confirmar con responsable de contenido.
-      longitude: null,
+      latitude: -19.0479,
+      longitude: -65.25952,
     },
     // TODO: confirmar con responsable de contenido.
     imageUrl: null,
     sources: [],
   },
   {
-    slug: "lugar-candidato-2",
-    name: "Lugar candidato 2",
+    slug: "casa-de-la-libertad",
+    name: "Casa de la Libertad",
     summary: "[TEXTO DE EJEMPLO]",
     description: "[TEXTO DE EJEMPLO]",
     coordinates: {
-      // TODO: confirmar con responsable de contenido.
-      latitude: null,
-      // TODO: confirmar con responsable de contenido.
-      longitude: null,
+      latitude: -19.04745,
+      longitude: -65.26038,
     },
     // TODO: confirmar con responsable de contenido.
     imageUrl: null,
     sources: [],
   },
   {
-    slug: "lugar-candidato-3",
-    name: "Lugar candidato 3",
+    slug: "la-recoleta",
+    name: "La Recoleta",
     summary: "[TEXTO DE EJEMPLO]",
     description: "[TEXTO DE EJEMPLO]",
     coordinates: {
-      // TODO: confirmar con responsable de contenido.
-      latitude: null,
-      // TODO: confirmar con responsable de contenido.
-      longitude: null,
+      latitude: -19.05451,
+      longitude: -65.25398,
     },
     // TODO: confirmar con responsable de contenido.
     imageUrl: null,

@@ -20,7 +20,7 @@ const optionFixtures = [
 export const quizFixtures: QuizFixture[] = [
   {
     quizId: "0878e376-fcfe-4aca-9043-f7349f0664eb",
-    placeSlug: "lugar-candidato-1",
+    placeSlug: "plaza-25-de-mayo",
     questions: [
       {
         questionId: "04639bbc-12b6-4115-b8e9-227ad22bd903",
@@ -41,7 +41,7 @@ export const quizFixtures: QuizFixture[] = [
   },
   {
     quizId: "06cab649-0e91-482b-9a14-3eff208f7fbd",
-    placeSlug: "lugar-candidato-2",
+    placeSlug: "casa-de-la-libertad",
     questions: [
       {
         questionId: "8b5a999b-a296-465f-97b0-6c8c9649a029",
@@ -62,7 +62,7 @@ export const quizFixtures: QuizFixture[] = [
   },
   {
     quizId: "18845dab-3632-4ea6-9ff2-badbe38f90e7",
-    placeSlug: "lugar-candidato-3",
+    placeSlug: "la-recoleta",
     questions: [
       {
         questionId: "fd8044e6-bc52-4383-81e2-999954b2b26c",
