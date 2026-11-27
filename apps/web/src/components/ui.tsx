@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router";
 import type { Source } from "../api/contract";
@@ -36,16 +36,20 @@ export function Card({ children, tone = "" }: { children: ReactNode; tone?: stri
 }
 
 export function XpBar({ level, totalXp }: { level: string; totalXp: number }) {
+  const lowerBound = totalXp >= 100 ? 100 : 0;
+  const nextThreshold = lowerBound + 100;
+  const maxLevel = totalXp >= 200;
+
   return (
     <div className="xp">
       <div>
         <span>{level}</span>
-        <strong>{totalXp} XP</strong>
+        <strong>{maxLevel ? `${totalXp} XP` : `${totalXp} / ${nextThreshold} XP`}</strong>
       </div>
       <progress
-        aria-label="Progreso hacia los primeros 100 XP"
+        aria-label={maxLevel ? "Nivel máximo alcanzado" : "Progreso hacia el siguiente nivel"}
         max={100}
-        value={Math.min(totalXp, 100)}
+        value={maxLevel ? 100 : totalXp - lowerBound}
       />
     </div>
   );
@@ -75,9 +79,13 @@ export function useResource<T>(load: () => Promise<T>) {
     data?: T;
     error?: string;
   }>();
+  const pending = useRef<{ load: typeof load; attempt: number; promise: Promise<T> }>(undefined);
   useEffect(() => {
     let active = true;
-    load().then(
+    if (pending.current?.load !== load || pending.current.attempt !== attempt) {
+      pending.current = { load, attempt, promise: load() };
+    }
+    pending.current.promise.then(
       (data) => {
         if (active) setState({ load, attempt, data });
       },

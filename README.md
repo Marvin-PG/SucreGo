@@ -92,9 +92,9 @@ Comprueba que la API está disponible:
 curl http://localhost:3001/health
 ```
 
-La respuesta esperada es `{"status":"ok"}`. Las pantallas web y los endpoints distintos de
-`/health` todavía son placeholders; las rutas disponibles incluyen `/`, `/explore`,
-`/place/:slug`, `/passport` y `/leaderboard`.
+La respuesta esperada es `{"status":"ok"}`. Sin `VITE_API_BASE_URL`, el frontend abre
+el modo demo con datos identificados como muestra. Los sellos de práctica duran solo
+durante la sesión de la página y la demo no concede XP.
 
 Para validar cambios desde la raíz:
 
@@ -105,13 +105,17 @@ npm run build
 npm run format:check
 ```
 
-No hace falta crear un `.env` para iniciar los placeholders actuales. La API usa el puerto `3001`
-por defecto; se puede cambiar con `API_PORT=3001 npm run dev --workspace apps/api`. Consulta
-[`.env.example`](.env.example) cuando se integren servicios que requieran configuración.
-
 ## 🔐 Variables de entorno
 
-Ver `.env.example`. **Nunca** se suben claves reales al repositorio. Las claves del modelo y credenciales privilegiadas viven solo en el backend.
+Para conectar el frontend a una API que implemente [el contrato](docs/api-contract.md),
+define `VITE_API_BASE_URL` (sin el sufijo `/api`), `VITE_SUPABASE_URL` y
+`VITE_SUPABASE_ANON_KEY` en el entorno de Vite o en el `.env` de la raíz.
+Habilita el inicio de sesión anónimo en Supabase. Para orígenes distintos, la API
+debe permitir el origen del frontend. El hosting web debe servir `index.html`
+para los enlaces directos de React Router.
+
+Consulta [`.env.example`](.env.example). Las credenciales privilegiadas y las
+claves del modelo viven solo en el backend.
 
 ## 🌿 Estrategia Git (GitFlow simplificado)
 

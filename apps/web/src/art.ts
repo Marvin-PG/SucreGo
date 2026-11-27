@@ -9,7 +9,7 @@ export const art = {
   happy: "/art/4920412382702537859.jpg",
   retry: "/art/4920412382702537860.jpg",
   plaza: "/art/4920412382702537861.jpg",
-  stamp: "/art/4920412382702537862.jpg",
+  stamp: "/art/stamp.webp",
 };
 
 export const placeArt: Record<string, string> = {

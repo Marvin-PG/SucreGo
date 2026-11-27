@@ -266,14 +266,24 @@ progress::-moz-progress-bar {
   right: 12px;
 }
 .map-canvas {
+  isolation: isolate;
   height: clamp(235px, 41dvh, 380px);
 }
-.map-area ul {
+.place-choices {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 9px 10px 0;
+  gap: 5px;
+  margin: 8px 8px 0;
 }
-.map-area li button {
-  background: #fff9f0;
+.place-choice {
+  min-height: 44px;
+  padding: 4px 8px;
+  border: 1px solid #172b4d40;
+  border-radius: 999px;
+  background: var(--color-cream);
+  font-size: 0.72rem;
+  font-weight: 750;
 }
 .location {
   margin-top: 8px;
@@ -417,4 +427,218 @@ progress::-moz-progress-bar {
   border-radius: 12px;
   background: var(--color-blue);
   color: white;
+}
+
+.quiz-progress > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quiz-progress .badge {
+  padding-left: 0;
+  color: #9e3626;
+}
+.quiz-mascot {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border: 5px solid var(--color-terracotta);
+  border-radius: 50%;
+  justify-self: center;
+}
+.quiz-options {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+.quiz-options legend {
+  width: 100%;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 1.55rem;
+  font-weight: 850;
+  line-height: 1.1;
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 8px 14px;
+  border: 1px solid #172b4d99;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+}
+.option:has(:focus-visible) {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+.option.selected {
+  background: var(--color-blue);
+  color: white;
+}
+.quiz-note {
+  font-size: 0.78rem;
+}
+.result {
+  text-align: center;
+  gap: 16px;
+}
+.result > .badge {
+  justify-self: center;
+}
+.result-art {
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  width: min(54vw, 205px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.result-art img {
+  width: 76%;
+  height: 85%;
+  object-fit: contain;
+  object-position: center;
+}
+.result .gold h2 {
+  font-size: 2rem;
+}
+.passport header,
+.leaderboard header {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  justify-content: space-between;
+}
+.passport header .badge {
+  flex: 0 0 auto;
+}
+.passport-profile {
+  display: grid;
+  gap: 16px;
+}
+.passport-profile > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.passport-profile > div:first-child > span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--color-cream);
+  color: var(--color-blue);
+  font-size: 1.4rem;
+}
+.stamps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.stamps li:last-child:nth-child(odd) {
+  grid-column: span 2;
+}
+.stamp {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  min-height: 105px;
+  height: 100%;
+  padding: 13px;
+  border-radius: 16px;
+}
+.stamp.outline {
+  border-style: dashed;
+}
+.stamp strong {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+.stamps li:last-child:nth-child(odd) .stamp {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+}
+.leaderboard header .badge {
+  margin-top: 12px;
+}
+.leaderboard header img {
+  width: 34%;
+  mix-blend-mode: multiply;
+}
+.podium {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+.podium li {
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  padding: 12px 5px;
+  border-radius: 12px;
+  background: var(--color-blue);
+  color: white;
+  overflow-wrap: anywhere;
+}
+.podium li > strong {
+  font-size: 1.55rem;
+}
+.podium li h3 {
+  font-size: 0.77rem;
+}
+.podium .podium-1 {
+  order: 1;
+  min-height: 148px;
+  background: var(--color-gold);
+  color: var(--color-blue);
+}
+.podium .podium-2 {
+  order: 0;
+  min-height: 118px;
+}
+.podium .podium-3 {
+  order: 2;
+  min-height: 100px;
+}
+.ranking-list {
+  display: grid;
+  gap: 8px;
+}
+.ranking-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 14px;
+}
+@media (max-width: 350px) {
+  .passport header {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+.map-error {
+  margin: 8px 12px 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: #f7e5be;
+  font-size: 0.78rem;
+}
+.map-error button {
+  min-height: 32px;
+  font-weight: 800;
+  text-decoration: underline;
 }
