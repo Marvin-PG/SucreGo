@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0",
+  "project": "SucreGo",
+  "language": "es",
+  "preparedAt": "2026-11-27",
+  "reviewStatus": "approved",
+  "reviewedBy": "Roi",
+  "reviewedAt": "2026-11-27T14:15:55.000Z",
+  "usage": "Corpus revisado por una persona. Indexar únicamente chunks aprobados; conservar siempre la fuente. Los casos de evaluación no se indexan.",
+  "places": [
+    {
+      "slug": "plaza-25-de-mayo",
+      "name": "Plaza 25 de Mayo"
+    },
+    {
+      "slug": "casa-de-la-libertad",
+      "name": "Casa de la Libertad"
+    },
+    {
+      "slug": "la-recoleta",
+      "name": "La Recoleta"
+    }
+  ],
+  "sources": [
+    {
+      "id": "CDL-01",
+      "title": "Historia de la Casa de la Libertad",
+      "publisher": "Casa de la Libertad — Fundación Cultural del Banco Central de Bolivia",
+      "url": "https://casadelalibertad.org.bo/historia/",
+      "accessedAt": "2026-11-27",
+      "type": "institutional"
+    },
+    {
+      "id": "CDL-02",
+      "title": "Casa de la Libertad — Guía turística del Bicentenario",
+      "publisher": "Tribunal Constitucional Plurinacional",
+      "url": "https://bicentenariocpe.tcpbolivia.bo/guia-turistica/lugar/casa-de-la-libertad",
+      "accessedAt": "2026-11-27",
+      "type": "institutional"
+    },
+    {
+      "id": "P25-01",
+      "title": "Ley Autonómica Municipal 471/2025",
+      "publisher": "Concejo Municipal de Sucre — Gaceta Municipal",
+      "url": "https://gacetamunicipalsucre.gob.bo/docs/normas/ley/40693/LEY-471-2025-1751642062.pdf",
+      "accessedAt": "2026-11-27",
+      "type": "legal"
+    },
+    {
+      "id": "P25-02",
+      "title": "Ley N.º 531 — Declaración de patrimonio cultural de la Plaza 25 de Mayo",
+      "publisher": "Estado Plurinacional de Bolivia (texto reproducido por Lexivox)",
+      "url": "https://www.lexivox.org/norms/BO-L-N531.xhtml",
+      "accessedAt": "2026-11-27",
+      "type": "legal_reproduction"
+    },
+    {
+      "id": "REC-01",
+      "title": "La plazuela de La Recoleta luce una nueva imagen colonial",
+      "publisher": "Gobierno Autónomo Municipal de Sucre",
+      "url": "https://sucre.bo/la-plazuela-de-la-recoleta-luce-una-nueva-imagen-colonial/",
+      "accessedAt": "2026-11-27",
+      "type": "institutional"
+    },
+    {
+      "id": "REC-02",
+      "title": "Ordenanza Municipal 069/00",
+      "publisher": "Concejo Municipal de Sucre — Gaceta Municipal",
+      "url": "https://gacetamunicipalsucre.gob.bo/docs/normas/ordenanza/34487/om-069-00.pdf",
+      "accessedAt": "2026-11-27",
+      "type": "legal"
+    },
+    {
+      "id": "REC-03",
+      "title": "Descubrimiento de la plaqueta conmemorativa Sucre Patrimonio Cultural de la Humanidad en La Recoleta",
+      "publisher": "Gobierno Autónomo Municipal de Sucre",
+      "url": "https://sucre.bo/descubrimiento-de-la-plaqueta-conmemorativa-sucre-patrimonio-cultural-de-la-humanidad-en-la-recoleta/",
+      "accessedAt": "2026-11-27",
+      "type": "institutional"
+    },
+    {
+      "id": "SUC-01",
+      "title": "Historic City of Sucre",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/566/",
+      "accessedAt": "2026-11-27",
+      "type": "institutional"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "cdl-origen-01",
+      "placeSlug": "casa-de-la-libertad",
+      "topic": "Origen universitario",
+      "sourceIds": ["CDL-01", "SUC-01"],
+      "text": "Antes de convertirse en museo, la Casa de la Libertad perteneció al conjunto jesuita destinado a la enseñanza. Su antigua capilla universitaria también funcionaba como sala para ceremonias académicas y defensas de tesis de los aspirantes a doctor. La Universidad de San Francisco Xavier de Chuquisaca fue fundada en 1624."
+    },
+    {
+      "id": "cdl-independencia-02",
+      "placeSlug": "casa-de-la-libertad",
+      "topic": "Independencia de Bolivia",
+      "sourceIds": ["CDL-01", "CDL-02"],
+      "text": "En julio de 1825 se reunieron diputados de las cinco provincias del Alto Perú para decidir el futuro político del territorio. El 6 de agosto de 1825 proclamaron la independencia, dando origen a Bolivia. El actual Salón de la Independencia conserva la memoria de ese acontecimiento."
+    },
+    {
+      "id": "cdl-republica-03",
+      "placeSlug": "casa-de-la-libertad",
+      "topic": "Primeras instituciones republicanas",
+      "sourceIds": ["CDL-01"],
+      "text": "Después de la independencia, el edificio sirvió como sede del Congreso hasta 1898. Allí se aprobó la primera Constitución boliviana, elaborada por Simón Bolívar, y se desarrollaron actos fundamentales para formar las nuevas instituciones republicanas."
+    },
+    {
+      "id": "cdl-museo-04",
+      "placeSlug": "casa-de-la-libertad",
+      "topic": "Colecciones y conservación",
+      "sourceIds": ["CDL-01", "CDL-02"],
+      "text": "Actualmente la Casa de la Libertad funciona como museo y resguarda documentos, retratos, mapas y objetos relacionados con la historia boliviana. Sus colecciones permiten estudiar la formación del país y transmitir esa memoria a las generaciones futuras."
+    },
+    {
+      "id": "p25-nombre-01",
+      "placeSlug": "plaza-25-de-mayo",
+      "topic": "Nombre y memoria histórica",
+      "sourceIds": ["P25-01"],
+      "text": "El nombre de la plaza principal de Sucre recuerda el levantamiento del 25 de mayo de 1809 en Chuquisaca. La normativa municipal relaciona este espacio con la memoria de las luchas emancipadoras y con la identidad de la ciudad."
+    },
+    {
+      "id": "p25-patrimonio-02",
+      "placeSlug": "plaza-25-de-mayo",
+      "topic": "Reconocimiento patrimonial",
+      "sourceIds": ["P25-01", "P25-02"],
+      "text": "La Ley Nacional 531 de 2014 reconoció la Plaza 25 de Mayo como patrimonio cultural e histórico de Bolivia. La norma dispone que las autoridades competentes impulsen su preservación, restauración y promoción."
+    },
+    {
+      "id": "p25-diseno-03",
+      "placeSlug": "plaza-25-de-mayo",
+      "topic": "Diseño urbano y arquitectura",
+      "sourceIds": ["P25-01"],
+      "text": "La configuración de la plaza conserva elementos de diseño vinculados a la influencia francesa del siglo XIX. Sus recorridos diagonales y circulares, fuentes talladas en piedra y punto central permiten observar cómo la organización del espacio urbano también expresa historia."
+    },
+    {
+      "id": "p25-monumentos-04",
+      "placeSlug": "plaza-25-de-mayo",
+      "topic": "Monumentos conmemorativos",
+      "sourceIds": ["P25-01"],
+      "text": "Entre los monumentos históricos que recoge la ley municipal figuran los dedicados a Antonio José de Sucre y Bernardo Monteagudo, instalados en 1909, y a Jaime de Zudáñez, incorporado en 2009. Estas figuras vinculan la plaza con episodios del nacimiento de Bolivia."
+    },
+    {
+      "id": "rec-origen-01",
+      "placeSlug": "la-recoleta",
+      "topic": "Orígenes franciscanos",
+      "sourceIds": ["REC-01", "REC-02"],
+      "text": "La Recoleta está en el barrio Santa Ana, a los pies del cerro Churuquella. Según la Ordenanza Municipal 069/00, los franciscanos fundaron el convento en 1600; una publicación municipal sitúa la fundación del barrio en 1601. Las referencias describen dos entidades distintas, por lo que no se debe confundir una fecha con la otra."
+    },
+    {
+      "id": "rec-restauracion-02",
+      "placeSlug": "la-recoleta",
+      "topic": "Restauración patrimonial",
+      "sourceIds": ["REC-01"],
+      "text": "El Gobierno Municipal documentó intervenciones para recuperar el aspecto de la plazuela y el mirador: reparaciones de cubiertas, pavimentos e iluminación, y recuperación de la pileta conocida como La Peregrina. Estas acciones ayudan a conservar detalles arquitectónicos y el espacio de encuentro público."
+    },
+    {
+      "id": "rec-memoria-03",
+      "placeSlug": "la-recoleta",
+      "topic": "Reconocimiento de la ciudad histórica",
+      "sourceIds": ["REC-03", "SUC-01"],
+      "text": "En octubre de 2022 la Alcaldía presentó una placa conmemorativa en La Recoleta, ubicada en el muro del Museo de Tanga Tanga. La placa recuerda el reconocimiento de Sucre como Patrimonio Mundial en 1991 y busca sensibilizar a la población sobre el cuidado del legado arquitectónico."
+    },
+    {
+      "id": "rec-franciscanos-04",
+      "placeSlug": "la-recoleta",
+      "topic": "Presencia franciscana y comunidad",
+      "sourceIds": ["REC-02"],
+      "text": "En 2000, con motivo de cuatro siglos de presencia franciscana, el Concejo Municipal distinguió a los padres franciscanos por su labor religiosa, educativa, cultural y comunitaria en la región."
+    },
+    {
+      "id": "suc-contexto-01",
+      "placeSlug": null,
+      "topic": "Contexto histórico de Sucre",
+      "sourceIds": ["SUC-01"],
+      "text": "La ciudad histórica de Sucre se desarrolló sobre tierras de la cultura indígena yampara. UNESCO destaca la combinación de tradiciones locales y estilos europeos en su arquitectura, así como su trazado urbano en cuadrícula. Sucre recibió su nombre actual en 1839 en honor a Antonio José de Sucre."
+    },
+    {
+      "id": "suc-contexto-02",
+      "placeSlug": null,
+      "topic": "Patrimonio mundial",
+      "sourceIds": ["SUC-01"],
+      "text": "El centro histórico de Sucre ingresó en la Lista del Patrimonio Mundial en 1991 bajo el criterio IV. UNESCO destaca la conservación de su conjunto urbano y arquitectónico como evidencia del encuentro entre diferentes tradiciones y estilos constructivos desde el siglo XVI."
+    }
+  ]
+}
