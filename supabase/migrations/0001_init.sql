@@ -15,6 +15,7 @@ CREATE TABLE public.places (
   latitude double precision CHECK (latitude IS NULL OR (latitude >= -90 AND latitude <= 90)),
   longitude double precision CHECK (longitude IS NULL OR (longitude >= -180 AND longitude <= 180)),
   summary text NOT NULL,
+  description text NOT NULL,
   image_url text
 );
 

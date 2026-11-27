@@ -1,7 +1,8 @@
--- SucreGo · Provisional seed data (idempotent)
--- Aligned with the 3 provisional slugs in apps/web/src/mocks/places.ts.
--- TODO: confirmar con responsable de contenido (lugares reales, categorías,
--- coordenadas, imágenes, fuentes verificadas y preguntas definitivas).
+-- SucreGo · Seed data (idempotent)
+-- Confirmed places (slugs and coordinates); historical texts, categories,
+-- images, verified sources and final quiz questions remain pending content sign-off.
+-- TODO: confirmar con responsable de contenido (categorías, resúmenes,
+-- descripciones, imágenes, fuentes verificadas y preguntas definitivas).
 
 INSERT INTO public.places (
   slug,
@@ -10,46 +11,47 @@ INSERT INTO public.places (
   latitude,
   longitude,
   summary,
+  description,
   image_url
 )
 VALUES
   (
-    'lugar-candidato-1',
-    'Lugar candidato 1',
+    'plaza-25-de-mayo',
+    'Plaza 25 de Mayo',
     -- TODO: confirmar con responsable de contenido
     '[TEXTO DE EJEMPLO]',
-    -- TODO: confirmar con responsable de contenido
-    NULL,
-    -- TODO: confirmar con responsable de contenido
-    NULL,
+    -19.04790,
+    -65.25952,
     -- TODO: confirmar con responsable de contenido
     '[TEXTO DE EJEMPLO]',
-    -- TODO: confirmar con responsable de contenido
-    NULL
-  ),
-  (
-    'lugar-candidato-2',
-    'Lugar candidato 2',
-    -- TODO: confirmar con responsable de contenido
-    '[TEXTO DE EJEMPLO]',
-    -- TODO: confirmar con responsable de contenido
-    NULL,
-    -- TODO: confirmar con responsable de contenido
-    NULL,
     -- TODO: confirmar con responsable de contenido
     '[TEXTO DE EJEMPLO]',
     -- TODO: confirmar con responsable de contenido
     NULL
   ),
   (
-    'lugar-candidato-3',
-    'Lugar candidato 3',
+    'casa-de-la-libertad',
+    'Casa de la Libertad',
+    -- TODO: confirmar con responsable de contenido
+    '[TEXTO DE EJEMPLO]',
+    -19.04745,
+    -65.26038,
     -- TODO: confirmar con responsable de contenido
     '[TEXTO DE EJEMPLO]',
     -- TODO: confirmar con responsable de contenido
-    NULL,
+    '[TEXTO DE EJEMPLO]',
     -- TODO: confirmar con responsable de contenido
-    NULL,
+    NULL
+  ),
+  (
+    'la-recoleta',
+    'La Recoleta',
+    -- TODO: confirmar con responsable de contenido
+    '[TEXTO DE EJEMPLO]',
+    -19.05451,
+    -65.25398,
+    -- TODO: confirmar con responsable de contenido
+    '[TEXTO DE EJEMPLO]',
     -- TODO: confirmar con responsable de contenido
     '[TEXTO DE EJEMPLO]',
     -- TODO: confirmar con responsable de contenido
@@ -69,9 +71,9 @@ INSERT INTO public.questions (
   explanation
 )
 VALUES
-  -- lugar-candidato-1
+  -- plaza-25-de-mayo
   (
-    'lugar-candidato-1',
+    'plaza-25-de-mayo',
     1,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -83,7 +85,7 @@ VALUES
     '[TEXTO DE EJEMPLO]'
   ),
   (
-    'lugar-candidato-1',
+    'plaza-25-de-mayo',
     2,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -95,7 +97,7 @@ VALUES
     '[TEXTO DE EJEMPLO]'
   ),
   (
-    'lugar-candidato-1',
+    'plaza-25-de-mayo',
     3,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -106,9 +108,9 @@ VALUES
     2,
     '[TEXTO DE EJEMPLO]'
   ),
-  -- lugar-candidato-2
+  -- casa-de-la-libertad
   (
-    'lugar-candidato-2',
+    'casa-de-la-libertad',
     1,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -120,7 +122,7 @@ VALUES
     '[TEXTO DE EJEMPLO]'
   ),
   (
-    'lugar-candidato-2',
+    'casa-de-la-libertad',
     2,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -132,7 +134,7 @@ VALUES
     '[TEXTO DE EJEMPLO]'
   ),
   (
-    'lugar-candidato-2',
+    'casa-de-la-libertad',
     3,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -143,9 +145,9 @@ VALUES
     2,
     '[TEXTO DE EJEMPLO]'
   ),
-  -- lugar-candidato-3
+  -- la-recoleta
   (
-    'lugar-candidato-3',
+    'la-recoleta',
     1,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -157,7 +159,7 @@ VALUES
     '[TEXTO DE EJEMPLO]'
   ),
   (
-    'lugar-candidato-3',
+    'la-recoleta',
     2,
     '[TEXTO DE EJEMPLO]',
     '[
@@ -169,7 +171,7 @@ VALUES
     '[TEXTO DE EJEMPLO]'
   ),
   (
-    'lugar-candidato-3',
+    'la-recoleta',
     3,
     '[TEXTO DE EJEMPLO]',
     '[
