@@ -1,22 +1,22 @@
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
-import type { PlaceFixture } from "../mocks/places";
+import type { Place } from "../api/contract";
 import type { UserCoordinates } from "../hooks/useGeolocation";
 
 interface PlaceMapProps {
-  places: PlaceFixture[];
-  onPlaceSelect: (place: PlaceFixture) => void;
+  places: Place[];
+  onPlaceSelect: (place: Place) => void;
   userLocation?: UserCoordinates;
 }
 
-type MappablePlace = PlaceFixture & {
+type MappablePlace = Place & {
   coordinates: { latitude: number; longitude: number };
 };
 
 const SUCRE_CENTER: [number, number] = [-19.0479, -65.25952];
 
-function hasCoordinates(place: PlaceFixture): place is MappablePlace {
+function hasCoordinates(place: Place): place is MappablePlace {
   const { latitude, longitude } = place.coordinates;
 
   return (
@@ -51,7 +51,7 @@ export function PlaceMap({ places, onPlaceSelect, userLocation }: PlaceMapProps)
     <section aria-label="Mapa de lugares patrimoniales" className="w-full">
       <MapContainer
         center={center}
-        className="h-[min(60vh,480px)] min-h-72 w-full"
+        className="map-canvas w-full"
         scrollWheelZoom={false}
         zoom={userLocation ? 15 : 14}
       >

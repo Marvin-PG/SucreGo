@@ -26,3 +26,395 @@
     margin: 0;
   }
 }
+
+body {
+  background: #ede6db;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.08;
+  font-weight: 850;
+}
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.045em;
+}
+h2 {
+  font-size: 1.1rem;
+}
+p {
+  line-height: 1.5;
+}
+small {
+  font-size: 0.75rem;
+}
+.app-shell {
+  position: relative;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin-inline: auto;
+  background: var(--color-cream);
+  box-shadow: 0 0 32px #172b4d16;
+}
+.with-nav {
+  padding-bottom: calc(68px + env(safe-area-inset-bottom));
+}
+.screen {
+  width: 100%;
+}
+.padded {
+  padding: 24px 20px;
+}
+.section-stack {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  justify-items: stretch;
+}
+.section-stack > .badge {
+  justify-self: start;
+}
+.demo-banner {
+  padding: 5px 12px;
+  background: #f7e5be;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+.action {
+  display: flex;
+  min-height: 48px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: var(--color-blue);
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+.terra {
+  background: var(--color-terracotta);
+  color: white;
+}
+.navy {
+  background: var(--color-blue);
+  color: white;
+}
+.jade {
+  background: var(--color-jade);
+  color: white;
+}
+.gold {
+  background: var(--color-gold);
+  color: var(--color-blue);
+}
+.outline {
+  border: 1px solid #172b4da0;
+  background: transparent;
+  color: var(--color-blue);
+}
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.68rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+}
+.card {
+  padding: 16px;
+  border-radius: 18px;
+}
+.card h2 + p {
+  margin-top: 8px;
+}
+.status {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #172b4d0b;
+  font-size: 0.875rem;
+}
+.xp {
+  display: grid;
+  gap: 8px;
+}
+.xp > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+progress {
+  width: 100%;
+  height: 6px;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  accent-color: var(--color-jade);
+  background: var(--color-gold);
+}
+progress::-webkit-progress-bar {
+  background: var(--color-gold);
+}
+progress::-webkit-progress-value {
+  background: var(--color-jade);
+}
+progress::-moz-progress-bar {
+  background: var(--color-jade);
+}
+.bottom-nav {
+  position: fixed;
+  z-index: 500;
+  inset: auto 0 0;
+  margin-inline: auto;
+  max-width: 430px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 7px 8px max(7px, env(safe-area-inset-bottom));
+  border-top: 1px solid #172b4d30;
+  background: var(--color-cream);
+}
+.bottom-nav a {
+  display: grid;
+  justify-items: center;
+  padding: 4px;
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+.bottom-nav a span {
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+.bottom-nav a.active {
+  color: var(--color-terracotta);
+}
+.welcome {
+  text-align: center;
+}
+.welcome-hero {
+  min-height: clamp(270px, 40dvh, 350px);
+  border-radius: 0 0 35px 35px;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 15px;
+}
+.welcome-hero img {
+  width: 80%;
+  max-width: 320px;
+}
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  color: var(--color-terracotta);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+.welcome-content {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  padding: 26px 20px;
+}
+.welcome-mascot {
+  width: min(41%, 155px);
+  height: auto;
+}
+.welcome-content small {
+  justify-self: start;
+}
+.explore > header {
+  padding: 24px 20px 16px;
+  gap: 8px;
+}
+.map-area {
+  position: relative;
+  text-align: center;
+}
+.map-area > .badge {
+  position: absolute;
+  z-index: 450;
+  top: 12px;
+  right: 12px;
+}
+.map-canvas {
+  height: clamp(235px, 41dvh, 380px);
+}
+.map-area ul {
+  justify-content: center;
+  margin: 9px 10px 0;
+}
+.map-area li button {
+  background: #fff9f0;
+}
+.location {
+  margin-top: 8px;
+  border-radius: 999px;
+  padding: 6px 12px;
+  min-height: 36px;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+.mission {
+  display: grid;
+  gap: 7px;
+  margin: 10px 20px 16px;
+  background: #fcf1e1;
+}
+.mission-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.mission-heading img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.mission-heading h2 {
+  margin-top: 6px;
+}
+.mission p {
+  font-size: 0.82rem;
+}
+.detail-hero {
+  height: clamp(240px, 39dvh, 350px);
+  position: relative;
+}
+.detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.detail-hero .back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.back {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  color: var(--color-blue);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.detail h1 {
+  font-size: clamp(2.25rem, 10vw, 3.15rem);
+  max-width: 9ch;
+}
+.sources {
+  font-size: 0.78rem;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+.sources a {
+  text-decoration: underline;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.page-header h1 {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.guide-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.guide-banner span {
+  color: var(--color-gold);
+  font-size: 1.65rem;
+}
+.guide-banner p,
+.guide p {
+  font-size: 0.875rem;
+}
+.lesson {
+  border: 1px solid #172b4d80;
+}
+.lesson .badge {
+  padding-left: 0;
+  color: #9e3626;
+}
+.lesson p {
+  white-space: pre-wrap;
+}
+.suggestions,
+.conversation {
+  display: grid;
+  gap: 8px;
+}
+.suggestions button {
+  min-height: 38px;
+  border-radius: 999px;
+  text-align: left;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+.conversation:empty {
+  display: none;
+}
+.conversation .card {
+  background: #f7ebd9;
+  overflow-wrap: anywhere;
+}
+.conversation h3 {
+  margin-bottom: 6px;
+}
+.chat-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border-radius: 16px;
+  padding: 5px;
+}
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  font-size: 0.8rem;
+}
+.chat-form button {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--color-blue);
+  color: white;
+}
