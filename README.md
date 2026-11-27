@@ -2,7 +2,7 @@
 
 > **Tu ciudad. Tu historia. Tu aventura.**
 
-SucreGo es una PWA *mobile-first* que convierte las calles de Sucre en una aventura de aprendizaje: mapa de lugares patrimoniales, lecciones conversacionales con IA basadas en fuentes verificadas, desafíos cortos y progresión por XP.
+SucreGo es una PWA _mobile-first_ que convierte las calles de Sucre en una aventura de aprendizaje: mapa de lugares patrimoniales, lecciones conversacionales con IA basadas en fuentes verificadas, desafíos cortos y progresión por XP.
 
 **Equipo:** VibeCoders · **Evento:** Hackathon Regional Sucre 2026 · **Tiempo:** 10 horas
 
@@ -26,25 +26,25 @@ G --> A
 
 ## ✅ Alcance
 
-| Prioridad | Funcionalidad |
-| - | - |
-| P0 | Mapa móvil (3 lugares) · Detalle · Guía IA con fuentes · Desafío · XP y niveles · Perfil/Pasaporte · Ranking |
-| P1 | QR de demostración · PWA instalable |
-| P2 | Amigos, rutas, AR, eventos (solo visión futura) |
+| Prioridad | Funcionalidad                                                                                                |
+| --------- | ------------------------------------------------------------------------------------------------------------ |
+| P0        | Mapa móvil (3 lugares) · Detalle · Guía IA con fuentes · Desafío · XP y niveles · Perfil/Pasaporte · Ranking |
+| P1        | QR de demostración · PWA instalable                                                                          |
+| P2        | Amigos, rutas, AR, eventos (solo visión futura)                                                              |
 
 Ninguna funcionalidad P1 empieza antes de que el flujo P0 esté integrado y probado.
 
 ## 🧱 Stack
 
-| Capa | Tecnología |
-| - | - |
-| Frontend | React + TypeScript + Vite · React Router · Tailwind CSS |
-| Mapa | Leaflet / React-Leaflet + OpenStreetMap |
-| Backend | Express + TypeScript (API REST) |
-| Datos | Supabase PostgreSQL (+ Auth) |
-| IA | LLM + embeddings, recuperación semántica (RAG) con citas |
-| QA | Vitest + smoke tests del flujo móvil |
-| Deploy | Vercel (web) + Render (API), con demo local de respaldo |
+| Capa     | Tecnología                                               |
+| -------- | -------------------------------------------------------- |
+| Frontend | React + TypeScript + Vite · React Router · Tailwind CSS  |
+| Mapa     | Leaflet / React-Leaflet + OpenStreetMap                  |
+| Backend  | Express + TypeScript (API REST)                          |
+| Datos    | Supabase PostgreSQL (+ Auth)                             |
+| IA       | LLM + embeddings, recuperación semántica (RAG) con citas |
+| QA       | Vitest + smoke tests del flujo móvil                     |
+| Deploy   | Vercel (web) + Render (API), con demo local de respaldo  |
 
 ## 📁 Estructura del repositorio
 
@@ -68,13 +68,46 @@ sucrego/
 
 ## 🚀 Cómo ejecutar
 
-> 🚧 Se completará al cerrar `chore/project-bootstrap`.
+Requiere Node.js y npm. Desde la raíz del repositorio:
 
 ```bash
-# 1. Instalar dependencias
-# 2. Copiar variables de entorno:  cp .env.example .env
-# 3. Levantar API y web en desarrollo
+npm install
 ```
+
+Inicia cada workspace en una terminal distinta:
+
+```bash
+# Terminal 1: API (http://localhost:3001)
+npm run dev --workspace apps/api
+```
+
+```bash
+# Terminal 2: frontend (Vite muestra la URL local, normalmente http://localhost:5173)
+npm run dev --workspace apps/web
+```
+
+Comprueba que la API está disponible:
+
+```bash
+curl http://localhost:3001/health
+```
+
+La respuesta esperada es `{"status":"ok"}`. Las pantallas web y los endpoints distintos de
+`/health` todavía son placeholders; las rutas disponibles incluyen `/`, `/explore`,
+`/place/:slug`, `/passport` y `/leaderboard`.
+
+Para validar cambios desde la raíz:
+
+```bash
+npm run lint
+npm test
+npm run build
+npm run format:check
+```
+
+No hace falta crear un `.env` para iniciar los placeholders actuales. La API usa el puerto `3001`
+por defecto; se puede cambiar con `API_PORT=3001 npm run dev --workspace apps/api`. Consulta
+[`.env.example`](.env.example) cuando se integren servicios que requieran configuración.
 
 ## 🔐 Variables de entorno
 
@@ -82,11 +115,11 @@ Ver `.env.example`. **Nunca** se suben claves reales al repositorio. Las claves 
 
 ## 🌿 Estrategia Git (GitFlow simplificado)
 
-| Rama | Propósito |
-| - | - |
-| `main` | Siempre estable y demostrable. Solo recibe merges desde `develop` en hitos. Aquí van los *tags*. |
-| `develop` | Rama de integración. Todas las PR apuntan aquí. |
-| `feat/*`, `fix/*`, `chore/*`, `test/*`, `docs/*` | Una rama por funcionalidad, creada desde `develop`. |
+| Rama                                             | Propósito                                                                                        |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `main`                                           | Siempre estable y demostrable. Solo recibe merges desde `develop` en hitos. Aquí van los _tags_. |
+| `develop`                                        | Rama de integración. Todas las PR apuntan aquí.                                                  |
+| `feat/*`, `fix/*`, `chore/*`, `test/*`, `docs/*` | Una rama por funcionalidad, creada desde `develop`.                                              |
 
 Ramas planificadas: `chore/project-bootstrap` · `feat/mobile-map` · `feat/place-details` · `feat/rag-guide` · `feat/quiz-and-xp` · `feat/profile-leaderboard` · `test/mvp-validation` · `docs/pitch-evidence`
 
@@ -108,13 +141,13 @@ Mapa © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright
 
 ## 👥 Equipo
 
-| Frente | Responsable |
-| - | - |
-| Technical Lead | Roi |
-| UX/UI | _por asignar_ |
-| Frontend | _por asignar_ |
-| Backend | _por asignar_ |
-| IA y contenido | _por asignar_ |
+| Frente            | Responsable   |
+| ----------------- | ------------- |
+| Technical Lead    | Roi           |
+| UX/UI             | _por asignar_ |
+| Frontend          | _por asignar_ |
+| Backend           | _por asignar_ |
+| IA y contenido    | _por asignar_ |
 | QA / presentación | _por asignar_ |
 
 ## 📋 Progreso
